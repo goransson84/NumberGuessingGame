@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.goranssonappdev.numberguessinggame.screen.GuessingGame
 import com.goranssonappdev.numberguessinggame.screen.GuessingGameViewModel
 import com.goranssonappdev.numberguessinggame.ui.theme.NumberGuessingGameTheme
@@ -24,8 +23,10 @@ class MainActivity : ComponentActivity() {
 
                     val guessingGameViewModel: GuessingGameViewModel by viewModels()
 
-                    GuessingGame(guessedNumber = guessingGameViewModel.getGuessedNumber(),
-                        guess = guessingGameViewModel.guess(it))
+                    val guessedNumber = guessingGameViewModel.getGuessedNumber()
+
+                    GuessingGame(guessedNumber = guessedNumber
+                    ) { guessingGameViewModel.guess(it) }
 
                 }
             }

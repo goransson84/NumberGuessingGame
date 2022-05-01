@@ -1,5 +1,6 @@
 package com.goranssonappdev.numberguessinggame.screen
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -19,7 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.goranssonappdev.numberguessinggame.R
 
 @Composable
-fun GuessingGame(guessedNumber: Set<Int>, guess: (Int) -> Int) {
+fun GuessingGame(guessedNumber: Set<Int>, guess: (Int) -> Unit) {
 
     Column(modifier = Modifier
         .background(color = Color.Red)
@@ -30,11 +31,14 @@ fun GuessingGame(guessedNumber: Set<Int>, guess: (Int) -> Int) {
             }
         )
 
+        //Log.d("TAG", "$guessedNumber")
+
         Row {
             InfoGuessingView(modifier = Modifier
                 .weight(1f)
                 .fillMaxSize(),
-                guessedNumber = guessedNumber)
+                guessedNumber = guessedNumber
+            )
 
 
             LazyColumn() {
@@ -53,6 +57,7 @@ fun GuessingGame(guessedNumber: Set<Int>, guess: (Int) -> Int) {
 
 @Composable
 fun InfoGuessingView(modifier: Modifier = Modifier, guessedNumber: Set<Int>) {
+    //Log.d("TAG1", "$guessedNumber")
     Column(modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center) {

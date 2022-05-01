@@ -7,11 +7,12 @@ import androidx.lifecycle.ViewModel
 
 class GuessingGameViewModel : ViewModel() {
 
-    private var guessedNumber = mutableStateOf(setOf<Int>(1,3))
+    //private var guessedNumber = mutableStateOf(setOf<Int>(1,3))
+    private val guessedNumber = mutableStateOf(setOf<Int>(0,2))
 
     fun guess(guess: Int) {
         guessedNumber.value += guess
-        Log.d("TAG", "$guessedNumber")
+        //Log.d("TAG", "$guessedNumber")
     }
 
     fun getGuessedNumber(): Set<Int> {
